@@ -229,7 +229,7 @@ def tokenize(texts: Union[str, List[str]], context_length: int = 77, truncate: b
     eot_token = _tokenizer.encoder["<|endoftext|>"]
     all_tokens = [[sot_token] + _tokenizer.encode(text) + [eot_token] for text in texts]
 
-    print ('all_tokens', all_tokens.shape)
+    print ('all_tokens', all_tokens)
     if packaging.version.parse(torch.__version__) < packaging.version.parse("1.8.0"):
         result = torch.zeros(len(all_tokens), context_length, dtype=torch.long)
     else:
