@@ -243,5 +243,5 @@ def tokenize(texts: Union[str, List[str]], context_length: int = 77, truncate: b
             else:
                 raise RuntimeError(f"Input {texts[i]} is too long for context length {context_length}")
         result[i, :len(tokens)] = torch.tensor(tokens)
-
+    print ('result:', result.shape, result)
     return result
